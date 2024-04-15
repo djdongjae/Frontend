@@ -1,0 +1,40 @@
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        div#app {
+            padding: 30px;
+            margin: 30px auto;
+            width: 400px;
+            border: 1px solid #ccc;
+            box-shadow: 3px 3px 3px #aaa;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: auto;
+        }
+
+        td {
+            padding: 15px;
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <table>
+            <tr v-for="r in row_size">
+                <td v-for="c in col_size"> {{ (r - 1) * row_size + c }} </td>
+            </tr>
+        </table>
+    </div>
+    <script
+        type="text/javascript"> let app = { data() { return { row_size: 4, col_size: 4 }; } }; Vue.createApp(app).mount("#app"); </script>
+</body>
+
+</html>
