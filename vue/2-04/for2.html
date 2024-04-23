@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        div#app {
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 600px;
+            border: 1px solid gray;
+            box-shadow: 3px 3px 3px #aaa;
+        }
+
+        span {
+            display: inline-block;
+            margin: 5px;
+            padding: 8px 15px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <span v-for="(s, index) in words">
+            {{ index }} - {{ s }}
+        </span>
+    </div>
+
+    <script type="text/javascript">
+        let app = {
+            data() {
+                return {
+                    words: ["zero", "one", "two", "three", "four", "five"]
+                };
+            }
+        };
+        Vue.createApp(app).mount("#app");
+    </script>
+</body>
+</html>

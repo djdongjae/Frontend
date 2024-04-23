@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        div#app {
+            padding: 30px;
+            margin: 30px auto;
+            width: 1200px;
+            border: 1px solid gray;
+            box-shadow: 3px 3px 3px #aaa;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: auto;
+            border: 1px solid black;
+        }
+
+        td {
+            padding: 15px;
+            /*border: 1px solid black;*/
+            text-align: center;
+            border-left: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <table>
+            <tr v-for="r in row_size">
+                <td v-for="c in col_size">
+                    {{ r + 1 }} * {{ c }} = {{ (r + 1) * c }}
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script type="text/javascript">
+        let app = {
+            data() {
+                return {
+                    row_size: 8,
+                    col_size: 9
+                };
+            }
+        };
+        Vue.createApp(app).mount("#app");
+    </script>
+</body>
+</html>

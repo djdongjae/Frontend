@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        div#app {
+            padding: 30px;
+            margin: 30px auto;
+            width: 400px;
+            border: 1px solid #ccc;
+            box-shadow: 3px 3px 3px #aaa;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 300px;
+        }
+
+        td {
+            padding: 5px;
+            border: 1px solid #aaa;
+            text-align: center;
+        }
+
+        tr:nth-child(1) {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <table>
+            <tr>
+                <td>속성명</td>
+                <td>속성값</td>
+            </tr>
+            <tr v-for="(value, key) in person" v-bind:key="key">
+                <td>{{ key }}</td>
+                <td>{{ value }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <script type="text/javascript">
+        let app = {
+            data() {
+                return {
+                    person: {id: 101, name: "홍길동", age: 16}
+                };
+            }
+        };
+        Vue.createApp(app).mount("#app");
+    </script>
+</body>
+</html>

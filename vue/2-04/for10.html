@@ -1,14 +1,16 @@
-<html lang="ko">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <style>
         div#app {
             padding: 30px;
             margin: 30px auto;
             width: 400px;
-            border: 1px solid #ccc;
+            border: 1px solid gray;
             box-shadow: 3px 3px 3px #aaa;
         }
 
@@ -24,17 +26,27 @@
         }
     </style>
 </head>
-
 <body>
     <div id="app">
         <table>
             <tr v-for="r in row_size">
-                <td v-for="c in col_size"> {{ (r - 1) * row_size + c }} </td>
+                <td v-for="c in col_size">
+                    {{ (r-1) * row_size + c }}
+                </td>
             </tr>
         </table>
     </div>
-    <script
-        type="text/javascript"> let app = { data() { return { row_size: 4, col_size: 4 }; } }; Vue.createApp(app).mount("#app"); </script>
-</body>
 
+    <script type="text/javascript">
+        let app = {
+            data() {
+                return {
+                    row_size: 4,
+                    col_size: 4
+                };
+            }
+        };
+        Vue.createApp(app).mount("#app");
+    </script>
+</body>
 </html>

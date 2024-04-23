@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        div#app {
+            padding: 50px;
+            margin: 30px auto;
+            width: 300px;
+            border: 1px solid #ccc;
+            box-shadow: 3px 3px 3px #aaa;
+            font-size: 11pt;
+        }
+
+        button {
+            padding: 0.5em 2em;
+            margin: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>value1: {{ value1 }}</h1>
+        <h1>value2: {{ value2 }}</h1>
+        <button type="button" v-on:click="increase1">value1++</button>
+        <button type="button" v-on:click="increase2">value2++</button>
+    </div>
+
+    <script type="text/javascript">
+        let app = {
+            data() {
+                return {
+                    value1: 0
+                };
+            },
+            methods: {
+                increase1: function() {
+                    this.value1++;
+                },
+                increase2: function() {
+                    if (typeof this.value2 == "undefined") this.value2 = 0;
+                    this.value2++;
+                    this.$forceUpdate();
+                }
+            }
+        };
+        Vue.createApp(app).mount("#app");
+    </script>
+</body>
+</html>

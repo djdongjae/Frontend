@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        div#app {
+            padding: 30px;
+            margin: 30px auto;
+            width: 450px;
+            border: 1px solid #ccc;
+            box-shadow: 3px 3px 3px #aaa;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 300px;
+        }
+
+        td {
+            padding: 5px;
+            border: 1px solid gray;
+            text-align: center;
+        }
+
+        td:nth-child(4) {
+            width: 50px;
+        }
+
+        tr:nth-child(1) {
+            background-color: #ddd;
+        }
+
+        input {
+            padding: 5px;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 0.5em 1em;
+            margin-top: 10px;
+            margin-right: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        {{person}} <br />
+        <input type="text" v-model="newKey" placeholder="새 속성명을 입력하세요" /> <br />
+        <input type="number" v-model="newValue" placeholder="새 속성값을 입력하세요" /> <br />
+        <button type="button" v-on:click="add">속성 추가</button>
+    </div>
+
+    <script type="text/javascript">
+        let app = {
+            data() {
+                return {
+                    person: {id: 101, name: "홍길동", age: 16},
+                    newKey: '',
+                    newValue: ''
+                };
+            },
+            methods: {
+                add() {
+                    this.person[this.newKey] = this.newValue;
+                }
+            }
+        };
+        Vue.createApp(app).mount("#app");
+    </script>
+</body>
+</html>

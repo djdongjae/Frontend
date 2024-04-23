@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        div#app {
+            padding: 30px;
+            margin: 30px auto;
+            width: 200px;
+            text-align: center;
+            border: 1px solid gray;
+            box-shadow: 3px 3px 3px #aaa;
+        }
+
+        button {
+            padding: 0.5em 2em;
+            margin: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ count }}</h1>
+        <div>
+            <button type="button" v-on:click="increase()">++</button>
+            <button type="button" v-on:click="decrease()">--</button>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        let app = {
+            data() {
+                return {
+                    count : 0
+                };
+            },
+            methods: {
+                increase() {
+                    this.count++;
+                },
+                decrease() {
+                    this.count--;
+                }
+            }
+        }
+        Vue.createApp(app).mount("#app");
+    </script>
+</body>
+</html>

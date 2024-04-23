@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        div .container {
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 600px;
+            border: 1px solid gray;
+            box-shadow: 3px 3px 3px #aaa;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        span {
+            display: inline-block;
+            margin: 5px 10px;
+            padding: 8px 15px;
+            border: solid black;
+        }
+
+        span:hover {
+            cursor: pointer;
+            background-color: #ddd;
+        }
+
+        input {
+            padding: 5px;
+            margin-right: 5px;
+        }
+
+        button {
+            padding: 0.3em;
+            padding: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <span v-for="(s, index) in words" v-bind:key="s" v-on:click="remove(index)">
+                {{ s }}
+            </span>
+        </div>
+        <div class="btn">
+            <input type="text" v-model="word" />
+            <button type="button" v-on:click="add">추가</button>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        let app = {
+            data() {
+                return {
+                    words: ["zero", "one", "two", "three", "four", "five"],
+                    word: ''
+                };
+            },
+            methods: {
+                remove(index) {
+                    this.words.splice(index, 1);
+                },
+                add() {
+                    this.words.push(this.word);
+                }
+            }
+        };
+        Vue.createApp(app).mount("#app");
+    </script>
+</body>
+</html>

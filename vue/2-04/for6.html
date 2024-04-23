@@ -1,7 +1,9 @@
-<html lang="ko">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <style>
         div#app {
@@ -28,7 +30,6 @@
         }
     </style>
 </head>
-
 <body>
     <div id="app">
         <table>
@@ -44,8 +45,21 @@
             </tr>
         </table>
     </div>
-    <script
-        type="text/javascript"> let app = { data() { return { persons: [{ id: 101, name: "홍길동", age: 16 }, { id: 102, name: "임꺽정", age: 18 }, { id: 103, name: "장길산", age: 19 }, { id: 104, name: "이몽룡", age: 17 }] }; } }; Vue.createApp(app).mount("#app"); </script>
-</body>
 
+    <script type="text/javascript">
+        let app = {
+            data() {
+                return {
+                    persons: [
+                    { id: 101, name: "홍길동", age: 16},
+                    { id: 102, name: "임꺽정", age: 18},
+                    { id: 103, name: "장길산", age: 19},
+                    { id: 104, name: "이몽룡", age: 17}
+                    ]
+                };
+            }
+        };
+        Vue.createApp(app).mount("#app");
+    </script>
+</body>
 </html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        div#app {
+            padding: 30px;
+            margin: 30px auto;
+            width: 400px;
+            border: 1px solid #ccc;
+            box-shadow: 3px 3px 3px #aaa;
+        }
+
+        input {
+            padding: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="number" v-model.number="value" />
+        <div>{{value + value}}</div>
+    </div>
+    <script type="text/javascript">
+        let app = {
+            data() {
+                return {
+                    value: 0
+                }
+            }
+        };
+        Vue.createApp(app).mount("#app");
+    </script>
+</body>
+</html>
