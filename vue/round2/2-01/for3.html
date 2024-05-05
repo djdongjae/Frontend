@@ -6,30 +6,35 @@
     <title>Document</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <style>
-        body {
-            padding: 20px;
+        div#app {
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 600px;
+            border: 1px solid #ccc;
+            box-shadow: 3px 3px 3px #aaa;
         }
-        input {
-            padding: 5px;
-            margin: 5px;
+
+        span {
+            display: inline-block;
+            margin: 0px 5px 15px 0px;
+            padding: 8px 15px;
+            border: 1px solid black;
         }
     </style>
 </head>
 <body>
     <div id="app">
-        <h1>{{ title }}</h1>
-        <p>{{ body }}</p>
-        <hr />
-        <input type="text" v-model="title" /> <br />
-        <input type="text" v-model="body" /> <br />
+        <span v-for="s in words" v-bind:key="s">
+            {{s}}
+        </span>
     </div>
+
     <script type="text/javascript">
         let app = {
             data() {
                 return {
-                    title: '안녕하세요',
-                    body: '좋은 아침 입니다.'
-                };
+                    words: ["zero", "one", "two", "three", "four", "five"]
+               };
             }
         };
         Vue.createApp(app).mount("#app");

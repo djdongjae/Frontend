@@ -9,26 +9,41 @@
         div#app {
             padding: 30px;
             margin: 30px auto;
-            width: 400px;
+            max-width: 600px;
             border: 1px solid #ccc;
             box-shadow: 3px 3px 3px #aaa;
         }
 
-        input {
-            padding: 4px;
+        span {
+            display: inline-block;
+            margin: 0px 5px 15px 0px;
+            padding: 8px 15px;
+            border: 1px solid black;
+        }
+
+        span:hover {
+            cursor: pointer;
+            background-color: #ddd;
         }
     </style>
 </head>
 <body>
     <div id="app">
-        <input type="text" v-model="value" />
-        <div>{{value + value}}</div>
+        <span v-for="(s, index) in words" v-bind:key="s" v-on:click="remove(index)">
+            {{s}}
+        </span>
     </div>
+
     <script type="text/javascript">
         let app = {
             data() {
                 return {
-                    value: 0
+                    words: ["zero", "one", "two", "three", "four", "five"]
+                };
+            },
+            methods: {
+                remove(index) {
+                    this.words.splice(index, 1);
                 }
             }
         };
